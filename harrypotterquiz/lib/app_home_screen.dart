@@ -21,12 +21,15 @@ class HomeScreen extends StatelessWidget {
             fontSize: 22,
           ),
         ),
-        OutlinedButton(
+        OutlinedButton.icon(
+          icon:const Icon(Icons.arrow_right_alt_rounded),
+          style:OutlinedButton.styleFrom(
+              foregroundColor: const Color(0xff401201),
+          ),
           onPressed: () {},
-          child: const Text(
+          label: const Text(
             "Quiz Start",
             style: TextStyle(
-              color: Color(0xff401201),
               fontSize: 16,
             ),
             ))
