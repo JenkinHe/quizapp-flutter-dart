@@ -5,8 +5,32 @@ class HomeScreen extends StatelessWidget {
 
   @override
   Widget build(context) {
-    return const Center(
-      child: Text("Harry Potter Quiz App")
-      );
+    return Center(
+        child: Column(
+      mainAxisSize: MainAxisSize.min,
+      children: [
+        Image.asset(
+          'assets/images/le-sserafim-chaewon-unforgiven-dewy-sage-4k-wallpaper-uhdpaper.com-423@1@k.jpg',
+          width: 300,
+        ),
+        const SizedBox(height: 30,),
+        const Text(
+          "Harry Potter Quiz App",
+          style: TextStyle(
+            color: Color(0xff401201),
+            fontSize: 22,
+          ),
+        ),
+        OutlinedButton(
+          onPressed: () {},
+          child: const Text(
+            "Quiz Start",
+            style: TextStyle(
+              color: Color(0xff401201),
+              fontSize: 16,
+            ),
+            ))
+      ],
+    ));
   }
 }
