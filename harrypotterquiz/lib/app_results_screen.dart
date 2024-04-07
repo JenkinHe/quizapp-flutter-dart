@@ -2,6 +2,7 @@
 
 
 import 'package:flutter/material.dart';
+import 'package:harrypotterquiz/app_summary_section.dart';
 import 'package:harrypotterquiz/data/questions.dart';
 
 class ResultsScreen extends StatelessWidget{
@@ -40,7 +41,7 @@ class ResultsScreen extends StatelessWidget{
           children: [
             const Text("You have answered x out of y questions correctly:"),
             const SizedBox(height: 30,),
-            const Text("List of questions,correct answers,chosen answer"),
+            SummarySection(getSummaryData()),
             const SizedBox(height: 30,),
             TextButton(onPressed: (){}, child:const Text("Restart"))
           ],
