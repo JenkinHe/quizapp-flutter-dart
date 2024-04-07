@@ -43,9 +43,9 @@ class _Quiz extends State<Quiz>{
     selectedAnswers.add(answer);
     if(selectedAnswers.length==questions.length){
       setState(() {
-        selectedAnswers=[];
-        activeScreen=ResultsScreen();
         
+        activeScreen=ResultsScreen(collatedAnswers: selectedAnswers,);
+        selectedAnswers=[];
       });
     }
   }

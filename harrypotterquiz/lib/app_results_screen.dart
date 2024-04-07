@@ -2,9 +2,30 @@
 
 
 import 'package:flutter/material.dart';
+import 'package:harrypotterquiz/data/questions.dart';
 
 class ResultsScreen extends StatelessWidget{
-  ResultsScreen({super.key});
+  const ResultsScreen({super.key,required this.collatedAnswers});
+  
+
+  final List<String> collatedAnswers;
+
+  List<Map<String,Object>> getSummaryData(){
+      List<Map<String,Object>> summaryData=[];
+
+      for(var loopVar=0; loopVar<collatedAnswers.length;loopVar++){
+        summaryData.add({
+          'questionIndex':loopVar,
+          'question':questions,
+          'correctAnswer':questions[loopVar].answersList[0],
+          'chosenAnswer':collatedAnswers[loopVar]
+
+      });
+      }
+
+    return summaryData;
+
+  }
 
   @override
   Widget build(context) {
