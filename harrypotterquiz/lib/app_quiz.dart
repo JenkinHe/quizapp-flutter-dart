@@ -45,6 +45,7 @@ class _Quiz extends State<Quiz>{
       setState(() {
         selectedAnswers=[];
         activeScreen=ResultsScreen();
+        
       });
     }
   }
