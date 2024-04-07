@@ -3,7 +3,7 @@ import 'package:harrypotterquiz/app_answer_button.dart';
 import 'package:harrypotterquiz/data/questions.dart';
 
 class QuestionsScreen extends StatefulWidget {
-  QuestionsScreen({super.key, required this.onSelectAnswer});
+  QuestionsScreen({super.key, required this.onSelectAnswer, });
 
   void Function(String answer) onSelectAnswer;
 

@@ -4,12 +4,15 @@
 import 'package:flutter/material.dart';
 import 'package:harrypotterquiz/app_summary_section.dart';
 import 'package:harrypotterquiz/data/questions.dart';
+import 'package:harrypotterquiz/app_quiz.dart';
 
 class ResultsScreen extends StatelessWidget{
-  const ResultsScreen({super.key,required this.collatedAnswers});
+  ResultsScreen({super.key,required this.collatedAnswers,required this.restartQuiz});
+
   
 
   final List<String> collatedAnswers;
+  void Function() restartQuiz;
 
   List<Map<String,Object>> getSummaryData(){
       List<Map<String,Object>> summaryData=[];
@@ -49,7 +52,7 @@ class ResultsScreen extends StatelessWidget{
             const SizedBox(height: 30,),
             SummarySection(getSummaryData()),
             const SizedBox(height: 30,),
-            TextButton(onPressed: (){}, child:const Text("Restart"))
+            TextButton(onPressed: restartQuiz, child:const Text("Restart"))
           ],
         ),
       ),

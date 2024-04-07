@@ -44,10 +44,16 @@ class _Quiz extends State<Quiz>{
     if(selectedAnswers.length==questions.length){
       setState(() {
         
-        activeScreen=ResultsScreen(collatedAnswers: selectedAnswers,);
+        activeScreen=ResultsScreen(collatedAnswers: selectedAnswers,restartQuiz: restartQuiz,);
         selectedAnswers=[];
       });
     }
+  }
+
+  void restartQuiz(){
+    setState(() {
+      activeScreen=HomeScreen(switchScreen);
+    });
   }
 
 @override
