@@ -3,7 +3,9 @@ import 'package:harrypotterquiz/app_answer_button.dart';
 import 'package:harrypotterquiz/data/questions.dart';
 
 class QuestionsScreen extends StatefulWidget {
-  const QuestionsScreen({super.key});
+  QuestionsScreen({super.key, required this.onSelectAnswer});
+
+  void Function(String answer) onSelectAnswer;
 
   @override
   State<QuestionsScreen> createState() {
@@ -13,11 +15,21 @@ class QuestionsScreen extends StatefulWidget {
 
 class _QuestionsScreen extends State<QuestionsScreen> {
 
-  final currentQuestion=questions[0];// access first question
+  var currentQuestionIndex=0;
+
+  void answerQuestion(String selectedAnswer){
+    setState(() {
+    widget.onSelectAnswer(selectedAnswer);
+    currentQuestionIndex++;  
+    });
+    
+  }
+
 
 
   @override
   Widget build(context) {
+    final currentQuestion=questions[currentQuestionIndex];
     return SizedBox(
       width: double.infinity,
       child: Container(
@@ -39,7 +51,12 @@ class _QuestionsScreen extends State<QuestionsScreen> {
               height: 30,
             ),
             ...currentQuestion.getShuffledAnswerList().map((item){
-              return AnswerButton(answerText: item, onAnswerSelect: (){});
+              return AnswerButton(
+                answerText: item, 
+                onAnswerSelect:(){
+                  answerQuestion(item);
+                }
+                 );
               } 
             ),
           ],

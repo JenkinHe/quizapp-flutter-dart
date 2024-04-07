@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:harrypotterquiz/app_home_screen.dart';
 import 'package:harrypotterquiz/app_questions_screen.dart';
+import 'package:harrypotterquiz/data/questions.dart';
 
 class Quiz extends StatefulWidget{
 
@@ -20,6 +21,7 @@ class Quiz extends StatefulWidget{
 class _Quiz extends State<Quiz>{
 
   Widget? activeScreen ;
+  List<String> selectedAnswers=[];
 
   @override
   void initState() {
@@ -29,8 +31,21 @@ class _Quiz extends State<Quiz>{
 
   void switchScreen(){
     setState(() {
-      activeScreen=const QuestionsScreen();
+      activeScreen=QuestionsScreen(
+        onSelectAnswer: collectAnswers
+        );
+      
     });
+  }
+
+  void collectAnswers(String answer){
+    selectedAnswers.add(answer);
+    if(selectedAnswers.length==questions.length){
+      setState(() {
+        selectedAnswers=[];
+        activeScreen=HomeScreen(switchScreen);
+      });
+    }
   }
 
 @override
